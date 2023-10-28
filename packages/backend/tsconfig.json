@@ -1,0 +1,105 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "target": "es2017",
+    "lib": [
+      "es2017",
+      "esnext.asynciterable"
+    ],
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "jest",
+      "node"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "pretty": true,
+    "sourceMap": true,
+    "declaration": true,
+    "outDir": "dist",
+    "allowJs": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "importHelpers": true,
+    "baseUrl": "src",
+    "skipLibCheck": true,
+    "paths": {
+      "@api/*": [
+        "api/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@controllers/*": [
+        "api/controllers/*"
+      ],
+      "@databases/*": [
+        "databases/*"
+      ],
+      "@core/*": [
+        "api/core/*"
+      ],
+      "@domain/*": [
+        "api/domain/*"
+      ],
+      "@interfaces/*": [
+        "interfaces/*"
+      ],
+      "@middlewares/*": [
+        "middlewares/*"
+      ],
+      "@models/*": [
+        "api//models/*"
+      ],
+      "@services/*": [
+        "lib/services/*"
+      ],
+      "@utils/*": [
+        "/lib/utils/*"
+      ],
+      "@env": [
+        "env"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@decorators/*": [
+        "api/decorators/*"
+      ],
+      "@app": [
+        "app"
+      ],
+      "@infrastructure/*": [
+        "infrastructure/*"
+      ],
+      "@globalconfig": [
+        "config"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.json",
+    ".env",
+    "src/tests/*.test.ts",
+    "src/tests/**/*.test.ts",
+    "src/databases/config/config.js"
+  ],
+  "exclude": [
+    "node_modules",
+    "src/logs",
+    "src/tests"
+  ],
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  }
+}

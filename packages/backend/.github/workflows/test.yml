@@ -1,0 +1,84 @@
+name: Node.js CI
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:14
+        env:
+          POSTGRES_USER: user
+          POSTGRES_PASSWORD: password
+          POSTGRES_DB: testdb
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:latest
+        ports:
+          - 6379:6379
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Delete yarn.lock
+        run: rm -f yarn.lock || true
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Setup Database
+        run: yarn db:setup
+        env:
+          DB_USERNAME: user
+          DB_PASSWORD: password
+          DB_DATABASE: testdb
+          DB_HOST: localhost
+          DB_DIALECT: postgres
+          DB_PORT: 5432
+          NODE_ENV: test
+          LOG_DIR: logs/
+          LOG_FORMAT: dev
+          LOG_LEVEL: debug
+          PORT: 3000
+
+      - name: Run tests
+        run: yarn test-jest
+        env:
+          DB_USERNAME: user
+          DB_PASSWORD: password
+          DB_DATABASE: testdb
+          DB_HOST: localhost
+          DB_DIALECT: postgres
+          DB_PORT: 5432
+          NODE_ENV: test
+          LOG_DIR: logs/
+          LOG_FORMAT: dev
+          LOG_LEVEL: debug
+          PORT: 3000
+          SNAKE_CASE: true
+          JWT_SECRET: SECRET
+          JWT_EXPIRES: 12h
+          CACHE_TYPE: "memory"
+          REDIS_HOST:
+          REDIS_PORT:
+          REDIS_PASSWORD:
+          REDIS_USERNAME:
+          UPLOAD_TYPE: disk
+          DISKS_DIR: ./public/
+          API_URL: localhost:3000

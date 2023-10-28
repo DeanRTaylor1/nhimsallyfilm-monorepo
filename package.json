@@ -1,0 +1,10 @@
+{
+  "name": "nhimsallyfilm-monorepo",
+  "version": "1.0.0",
+  "author": "DSystems",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ]
+}
