@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .example {
+    @apply rounded w-full h-8 placeholder:text-sm placeholder:text-zinc-700 active:text-zinc-900 
+    focus:text-zinc-900  focus:border-white  focus:ring-white active:border-white bg-zinc-200 font-extralight placeholder:font-extralight;
+  }
+  .hamburger {
+    @apply text-2xl hover:cursor-pointer  transition-all ease-in-out duration-700 relative z-50
+    
+    md:hidden;
+  }
+  .navbarDropdownList {
+    @apply fixed w-screen h-screen top-0 left-0 p-2 bg-white flex text-center items-start justify-center
+      transition-opacity duration-500 origin-top z-10 lg:hidden;
+  }
+
+  .navbarDropdownListItem {
+    @apply text-lg font-extrabold hover:cursor-pointer hover:bg-slate-50  transition-opacity duration-500 tracking-widest;
+  }
+  .navbarStandardListItem {
+    @apply text-lg hover:cursor-pointer hover:bg-slate-50;
+  }
+
+  .smIcons {
+    @apply rounded-md h-image  
+    text-xl hover:cursor-pointer hover:opacity-70 text-zinc-900;
+  }
+  .contactlinks {
+    @apply rounded-md 
+    text-4xl underline underline-offset-8 tracking-wider hover:cursor-pointer hover:bg-slate-50 text-zinc-900;
+  }
+  .signUpFormTextInput {
+    @apply rounded w-full border-slate-200 border-b border-t border-l border-r p-2 h-12 flex justify-start items-center placeholder:text-sm placeholder:text-zinc-700 active:text-zinc-900 
+    focus:text-zinc-900 active:border-black focus:outline-none hover:cursor-text active:cursor-text focus:ring-white focus:shadow-2xl active:shadow-2xl bg-slate-50 font-extralight placeholder:font-extralight transition-all ease-in-out duration-700;
+  }
+  .submitButton {
+    @apply w-full flex items-center justify-center h-10 bg-zinc-200 rounded-md hover:cursor-pointer hover:bg-zinc-300 border-gray-200;
+  }
+  .dashboardNavItem {
+    @apply text-lg uppercase py-3 font-bold block hover:cursor-pointer;
+  }
+  .dashboardNavListItem {
+    @apply px-2 items-center flex gap-2 hover:opacity-75;
+  }
+  .dashboardImageContainer {
+    @apply w-full min-w-[550px] min-h-fit max-w-[calc(100%/4)] p-4 border-2 rounded-md flex gap-4 hover:cursor-pointer hover:bg-zinc-50;
+  }
+  .statusCreator {
+    @apply rounded w-full border-slate-200 border-b border-t border-l border-r p-2 h-12 flex justify-start items-center placeholder:text-sm placeholder:text-zinc-700 active:text-zinc-900 
+    focus:text-zinc-900 active:border-black focus:outline-none hover:cursor-text active:cursor-text focus:ring-white focus:shadow-2xl active:shadow-2xl bg-slate-50 font-extralight placeholder:font-extralight transition-all ease-in-out duration-700;
+  }
+  .formInput {
+    @apply rounded  w-full border-slate-200 border-b border-t border-l border-r p-2 h-12 flex justify-start items-center placeholder:text-sm placeholder:text-zinc-700 text-zinc-900 
+  focus:border-gray-600 active:border-gray-600 focus:outline-none hover:cursor-text active:cursor-text focus:ring-white focus:shadow-2xl active:shadow-2xl bg-slate-50 font-extralight placeholder:font-extralight transition-all ease-in-out duration-700;
+  }
+}
+.lds-roller {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-roller div {
+  animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  transform-origin: 40px 40px;
+}
+.lds-roller div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: black;
+  margin: -4px 0 0 -4px;
+}
+.lds-roller div:nth-child(1) {
+  animation-delay: -0.036s;
+}
+.lds-roller div:nth-child(1):after {
+  top: 63px;
+  left: 63px;
+}
+.lds-roller div:nth-child(2) {
+  animation-delay: -0.072s;
+}
+.lds-roller div:nth-child(2):after {
+  top: 68px;
+  left: 56px;
+}
+.lds-roller div:nth-child(3) {
+  animation-delay: -0.108s;
+}
+.lds-roller div:nth-child(3):after {
+  top: 71px;
+  left: 48px;
+}
+.lds-roller div:nth-child(4) {
+  animation-delay: -0.144s;
+}
+.lds-roller div:nth-child(4):after {
+  top: 72px;
+  left: 40px;
+}
+.lds-roller div:nth-child(5) {
+  animation-delay: -0.18s;
+}
+.lds-roller div:nth-child(5):after {
+  top: 71px;
+  left: 32px;
+}
+.lds-roller div:nth-child(6) {
+  animation-delay: -0.216s;
+}
+.lds-roller div:nth-child(6):after {
+  top: 68px;
+  left: 24px;
+}
+.lds-roller div:nth-child(7) {
+  animation-delay: -0.252s;
+}
+.lds-roller div:nth-child(7):after {
+  top: 63px;
+  left: 17px;
+}
+.lds-roller div:nth-child(8) {
+  animation-delay: -0.288s;
+}
+.lds-roller div:nth-child(8):after {
+  top: 56px;
+  left: 12px;
+}
+@keyframes lds-roller {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Target the scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 12px;
+}
+
+/* Target the scrollbar track */
+::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* Light gray */
+  border-radius: 4px;
+}
+
+/* Target the scrollbar thumb */
+::-webkit-scrollbar-thumb {
+  background-color: #999; /* Dark gray */
+  border-radius: 4px;
+}
+
+/* Target the scrollbar thumb on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #666; /* Darker gray */
+}
+
+html {
+  scrollbar-color: #999 #f0f0f0;
+  scrollbar-width: thin;
+}
+/* Hide scrollbar for mobile devices */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
