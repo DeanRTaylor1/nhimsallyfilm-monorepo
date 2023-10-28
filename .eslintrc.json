@@ -40,10 +40,10 @@
         ]
     },
     "ignorePatterns": [
-        "src/databases/**",
-        "jest.config.js",
-        "src/lib/__tests__/**",
-        "scripts/**"
+        "**/src/databases/**",
+        "**/jest.config.js",
+        "**/__tests__/**",
+        "**/scripts/**"
     ],
     "overrides": [
         {

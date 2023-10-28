@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Node.js nsf-backend CI-test
 
 on:
   pull_request:
@@ -43,7 +43,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Setup Database
-        run: yarn db:setup
+        run: yarn workspace nsf-backend run db:setup
         env:
           DB_USERNAME: user
           DB_PASSWORD: password
@@ -58,7 +58,7 @@ jobs:
           PORT: 3000
 
       - name: Run tests
-        run: yarn test-jest
+        run: yarn workspace nsf-backend run test-jest
         env:
           DB_USERNAME: user
           DB_PASSWORD: password

@@ -2,7 +2,7 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-COPY .env.development.local package.json yarn.lock ./
+COPY packages/backend/.env.development.local packages/backend/package.json yarn.lock ./
 
 RUN yarn
 
@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["yarn", "dev:docker"]
+CMD ["yarn", "workspace", "nsf-backend", "run", "dev:docker"]

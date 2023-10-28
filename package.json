@@ -6,5 +6,27 @@
   "private": true,
   "workspaces": [
     "packages/**"
-  ]
+  ],
+  "scripts": {
+    "run:backend": "cross-env DOCKERFILE_NAME=packages/backend/Dockerfile.dev docker-compose -f run-backend.yml up --build",
+    "test:backend": "yarn workspace nsf-backend test"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "node packages/backend/scripts/check-env-vars.js && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": [
+      "eslint"
+    ],
+    ".github/workflows/*.yml": "eslint"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "lint-staged": "^15.0.2"
+  },
+  "dependencies": {
+    "husky": "^8.0.3"
+  }
 }
