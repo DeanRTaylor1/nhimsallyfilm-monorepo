@@ -6,9 +6,10 @@
   "license": "MIT",
   "private": false,
   "scripts": {
-    "dev:docker": "yarn db:setup && cross-env NODE_ENV=development nodemon",
+    "dev:docker": "yarn db:setup && yarn db:seed && cross-env NODE_ENV=development nodemon",
     "lint": "eslint --ignore-path .gitignore --ext .ts src/",
     "db:setup": "sequelize-cli db:migrate",
+    "db:seed": "sequelize-cli db:seed:all",
     "dev": "cross-env DOCKERFILE_NAME=Dockerfile.dev docker-compose -f run-backend.yml up --build",
     "postgres": "docker run --name postgres16 -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=secret -d postgres:16-alpine",
     "createdb": "sleep 5 && docker exec -it postgres16 createdb --username=root --owner=root test_db",

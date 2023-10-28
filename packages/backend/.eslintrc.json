@@ -49,9 +49,9 @@
         {
             "files": [
                 "*.controller.ts",
-                "src/**/decorators/**",
-                "src/**/middlewares/**",
-                "src/lib/upload/utils.ts"
+                "**/src/**/decorators/**",
+                "**/src/**/middlewares/**",
+                "**/src/lib/upload/utils.ts"
             ],
             "rules": {
                 "max-params": "off"
