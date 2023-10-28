@@ -7,7 +7,7 @@
       "esnext.asynciterable"
     ],
     "typeRoots": [
-      "node_modules/@types"
+      "../../node_modules/@types"
     ],
     "types": [
       "jest",
@@ -90,7 +90,8 @@
     ".env",
     "src/tests/*.test.ts",
     "src/tests/**/*.test.ts",
-    "src/databases/config/config.js"
+    "src/databases/config/config.js",
+    "src/lib/__tests__/globalSetup.ts"
   ],
   "exclude": [
     "node_modules",

@@ -15,8 +15,8 @@ function makeModuleNameMapper(srcPath, tsconfigPath) {
   return aliases;
 }
 
-const TS_CONFIG_PATH = "./tsconfig.json";
 const SRC_PATH = "<rootDir>/src";
+const TS_CONFIG_PATH = "./tsconfig.json";
 
 const config = {
   moduleNameMapper: makeModuleNameMapper(SRC_PATH, TS_CONFIG_PATH),

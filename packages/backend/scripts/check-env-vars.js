@@ -6,11 +6,10 @@ const process = require("process");
 
 const envFilePath = path.join(__dirname, "..", ".env.test.local");
 const workflowFilePath = path.join(
-  __dirname,
-  "..",
+  process.cwd(),
   ".github",
   "workflows",
-  "test.yml"
+  "test-backend.yml"
 );
 
 const envContent = fs.readFileSync(envFilePath, "utf-8");
