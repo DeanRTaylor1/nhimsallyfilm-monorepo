@@ -1,0 +1,13 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+COPY packages/frontend/.env packages/frontend/package.json yarn.lock ./
+
+RUN yarn
+
+COPY . .
+
+EXPOSE 3001
+
+CMD ["yarn", "workspace", "nsf-frontend", "run", "dev"]
