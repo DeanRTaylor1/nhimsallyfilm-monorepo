@@ -20,7 +20,7 @@ services:
       dockerfile: packages/backend/${DOCKERFILE_NAME}
     volumes:
       - ./:/app
-      - ./src/lib/debug/logs:/app/src/lib/debug/logs
+      - ./packages/backend/src/lib/debug/logs:/app/src/lib/debug/logs
     ports:
       - "3000:3000"
     environment:
@@ -36,3 +36,10 @@ services:
     image: redis:latest
     ports:
       - "6379:6379"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: packages/frontend/${DOCKERFILE_NAME}
+    ports:
+      - "3001:3000"

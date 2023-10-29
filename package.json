@@ -8,8 +8,9 @@
     "packages/**"
   ],
   "scripts": {
-    "run:backend": "cross-env DOCKERFILE_NAME=packages/backend/Dockerfile.dev docker-compose -f run-backend.yml up --build",
-    "test:backend": "yarn workspace nsf-backend test"
+    "run:backend": "cross-env DOCKERFILE_NAME=Dockerfile.dev docker-compose -f run-backend.yml up --build",
+    "test:backend": "yarn workspace nsf-backend test",
+    "dev:stack": "cross-env DOCKERFILE_NAME=Dockerfile.dev docker-compose up --build"
   },
   "husky": {
     "hooks": {
